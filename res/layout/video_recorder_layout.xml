@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <FrameLayout
+        android:id="@+id/ziggeo_recorder_surface_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/black" >
+
+        <net.majorkernelpanic.streaming.gl.SurfaceView
+            android:id="@+id/ziggeo_recorder_surface"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+        
+<!--          <RelativeLayout
+             android:id="@+id/surface_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" >
+        </RelativeLayout> -->
+        
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/bitrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@+id/ziggeo_recorder_surface_layout"
+        android:padding="5dp"
+        android:text="@string/default_bitrate"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="15dp"
+        android:text="@string/default_timer"
+        android:textColor="@android:color/white" />
+
+    <include layout="@layout/recorder_controls_layout" />
+    
+    <include layout="@layout/grid_layout" />
+    
+    <include layout="@layout/background_frame_layout" />
+    
+    <include layout="@layout/progress_layout" />
+    
+</RelativeLayout>

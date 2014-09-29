@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ziggeo_video_player_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible" >
+            
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@android:color/white"
+    android:id="@+id/ziggeo_video_player" 
+    android:visibility="gone" >
+    
+        
+    <include layout="@layout/background_frame_layout" />
+        
+    <ImageButton
+        android:id="@+id/ziggeo_player_play"         
+        android:layout_width="75dip"
+        android:layout_height="75dip"
+        android:background="@drawable/button_play_solid"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:tag="5" />
+                
+    <include android:id="@+id/ziggeo_recorderer_layout_2" layout="@layout/rerecord_button_layout" />
+    
+    </RelativeLayout>  
+
+    <include layout="@layout/progress_layout" />
+    
+</FrameLayout>

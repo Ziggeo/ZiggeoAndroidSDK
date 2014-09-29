@@ -1,0 +1,16 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@android:color/black"
+    android:id="@+id/ziggeo_background_frame_layout"
+    android:visibility="gone" >
+    
+    <ImageView
+        android:id="@+id/background_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"  >
+    </ImageView>
+
+
+</FrameLayout>

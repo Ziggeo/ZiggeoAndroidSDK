@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:id="@+id/ziggeo_recorder_controls" >
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        
+        <ImageButton
+            android:id="@+id/ziggeo_recorder_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/start"
+            android:src="@drawable/ic_switch_video"
+            android:text="@string/start"
+            android:tag="0" />
+
+        <ImageButton
+            android:id="@+id/ziggeo_recorder_flash"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/flash"
+            android:src="@drawable/ic_flash_on_holo_light"
+            android:tag="1"  />
+
+        <ImageButton
+            android:id="@+id/ziggeo_recorder_switch_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/camera"
+            android:src="@drawable/ic_switch_photo_facing_holo_light"
+            android:tag="2"  />
+
+        <ImageButton
+            android:id="@+id/ziggeo_recorder_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/video"
+            android:src="@drawable/ic_settings_holo_light"
+            android:tag="3"  />
+    </LinearLayout>
+</FrameLayout>

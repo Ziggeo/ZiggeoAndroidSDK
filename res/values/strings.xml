@@ -1,5 +1,12 @@
 <resources>
 
     <string name="app_name">Ziggeo Android SDK</string>
-
+    <string name="rerecord">Click here to record the video again</string>
+    <string name="start">Start/Stop Streaming</string>
+    <string name="flash">Flash</string>
+    <string name="camera">Camera</string>
+    <string name="video">Video Settings</string>
+    <string name="default_bitrate">0 kbps</string>
+    <string name="default_timer">0</string>
+    
 </resources>
