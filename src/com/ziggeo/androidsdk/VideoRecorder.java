@@ -17,7 +17,6 @@ import android.hardware.SensorManager;
 import android.hardware.Camera.*;
 import android.net.Uri;
 import android.os.*;
-import android.util.Log;
 import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.*;
@@ -244,11 +243,9 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 			// Post the image and the video, depending on the configuration used			
 			imagePostRequest.callback = new OnPostRequestCompletedCallback() {
 				public void OnPostRequestCompleted(JSONObject jObject) {
-					Log.d("ZIGGEO", Ziggeo.postVideoPath(VIDEO_TOKEN, STREAM_TOKEN));
 					videoPostRequest.execute(Ziggeo.postVideoPath(VIDEO_TOKEN, STREAM_TOKEN));
 				}
 			};
-			Log.d("ZIGGEO", Ziggeo.postImagePath(VIDEO_TOKEN, STREAM_TOKEN));
 			imagePostRequest.execute(Ziggeo.postImagePath(VIDEO_TOKEN, STREAM_TOKEN));
 			
 			// Set the frame as main background and hide grid view
@@ -279,36 +276,28 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 	
     private void postExecute() {
 		try {
-			Log.d("ZIGGEO", "Gogogo");
 			// Post requests for video and preview frame
 			final PostRequest videoPostRequest = new PostRequest();		
 			videoPostRequest.execute(Ziggeo.postVideoPath(VIDEO_TOKEN, STREAM_TOKEN));
-			Log.d("ZIGGEO", "Step1");
 			// Set the frame as main background and hide grid view
 		    mGridViewLayout.setVisibility(View.GONE);
 		    mFrameSelected = true;
-			Log.d("ZIGGEO", "Step2");
 		    		    
 		    // Video has been already streamed to the server, start loading the video
 		    if (mSessionStopped) {
-				Log.d("ZIGGEO", "Step3");
 				if (callback != null)
 					callback.OnUploadCompleted(VIDEO_TOKEN, IMAGE_PATH);
-				Log.d("ZIGGEO", "Step4");
 		    	enableUI();
-				Log.d("ZIGGEO", "Step5");
 		    }
 
 		    // Video has not finished streaming, show a ProgressBar and wait.
 		    // The player will be set up once the session is completed
 			else 
 				mProgressBar.setVisibility(View.VISIBLE);
-			Log.d("ZIGGEO", "Step6");
 		    
 		    isInitialStream = true;
 			
 		} catch(Exception e) {
-			Log.d("ZIGGEO", e.getMessage());
 		}
 		
 	}
@@ -332,30 +321,22 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 	
 	/* Retrieve either the stream or the video token */
 	private void retrieveTokens() {
-		Log.d("ZIGGEO", "retrieveTokens: start");
 		// If this is the first stream, then create a new video via a POST request
 		if (isInitialStream) {
 			try {
-				Log.d("ZIGGEO", "retrieveTokens: postRequest");
 				PostRequest postRequest = new PostRequest();
 				// Retrieve tokens, then start recording
 				postRequest.callback = new OnPostRequestCompletedCallback() {
 					public void OnPostRequestCompleted(JSONObject jObject) {
-						Log.d("ZIGGEO", "retrieveTokens: callback");
 						try {
 							VIDEO_TOKEN = jObject.getJSONObject("video").getString("token");   
 							STREAM_TOKEN = jObject.getJSONObject("stream").getString("token");
-							Log.d("ZIGGEO", VIDEO_TOKEN + " / " + STREAM_TOKEN);
 						} catch (Exception e) {
-							Log.d("ZIGGEO", "retrieveTokens: callbackshit" + e.getMessage());
 						}
-						Log.d("ZIGGEO", "starting stream");
 						startStream();
 					}
 				};
-				Log.d("ZIGGEO", "retrieveTokens: execute");
 				postRequest.execute(Ziggeo.postNewVideoPath());
-				Log.d("ZIGGEO", "retrieveTokens: after");
 			} catch(Exception e) {
 			}	
 			isInitialStream = false;
@@ -382,19 +363,8 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 	}
 	
 	private void startStream() {
-		Log.d("ZIGGEO", Ziggeo.recordWowzaPath(VIDEO_TOKEN, STREAM_TOKEN));
 		mClient.setStreamPath(Ziggeo.recordWowzaPath(VIDEO_TOKEN, STREAM_TOKEN));
-		Log.d("ZIGGEO", "Start");
 		mClient.startStream();
-		Log.d("ZIGGEO", "AFterStart");
-		/*
-		// Start recording the video
-		try {
-			PostRequest postRequest = new PostRequest();
-			postRequest.execute(Config.WOWZA_RECORD_URI + "/applications/" + APPLICATION_TOKEN + "/videos/" + VIDEO_TOKEN + "/streams/" + STREAM_TOKEN + "/video.mp4");
-		} catch(Exception e) {
-		}
-		*/
 	}
 		
 	
@@ -585,13 +555,10 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 	// the upload of the stream to the Wowza server
 	@Override
 	public void onSessionStopped() {
-		Log.d("ZIGGEO", "Step-a");
 		enableUI();
-		Log.d("ZIGGEO", "Step-b");
 		mButtonStart.setImageResource(R.drawable.ic_switch_video);
 		mProgressBar.setVisibility(View.GONE);
 		mSessionStopped = true;
-		Log.d("ZIGGEO", "Step-c");
 	    
 		// Session could be completed either before or after the user
 		// has already selected the preview frame. In the former case,
@@ -599,16 +566,12 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 		// the onItemClick method, hence nothing more need to be done
 		// here. In the latter case, a spinner has been shown instead,
 		// that we need to stop here and then display the player
-		Log.d("ZIGGEO", "Step-e");
 		if (mFrameSelected && videoRecorded) {
 			mProgressBar.setVisibility(View.GONE);
-			Log.d("ZIGGEO", "Step-f");
 			if (callback != null)
 				callback.OnUploadCompleted(VIDEO_TOKEN, IMAGE_PATH);
-			Log.d("ZIGGEO", "Step-g");
 			enableUI();
 		}
-		Log.d("ZIGGEO", "Step-h");
 		
 	}
 	

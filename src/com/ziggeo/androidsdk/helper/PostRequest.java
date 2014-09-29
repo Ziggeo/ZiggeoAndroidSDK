@@ -10,7 +10,6 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 public class PostRequest extends AsyncTask<String, Integer, Long> {
 
@@ -25,7 +24,6 @@ public class PostRequest extends AsyncTask<String, Integer, Long> {
 		long responseCode = -1;
 
 		try {
-			Log.d("ZIGGEO", "POST " + urls[0]);
 			HttpClient httpclient = new DefaultHttpClient();
 			HttpPost httppost = new HttpPost(urls[0]);
 			prepare(httppost);

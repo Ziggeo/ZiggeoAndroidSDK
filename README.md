@@ -41,8 +41,8 @@ Copyright (c) 2014 Ziggeo
 
 
 ## Contributors
-Gianluca Di Maggio
-Oliver Friedmann
+- Gianluca Di Maggio 
+- Oliver Friedmann 
 
 
 ## Credits
