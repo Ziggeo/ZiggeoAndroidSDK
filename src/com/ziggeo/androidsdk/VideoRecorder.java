@@ -214,7 +214,11 @@ public class VideoRecorder extends Fragment implements OnClickListener,
     /* Handle recorder button events */
 	@Override
 	public void onClick(View v) {
-		int tag = Integer.parseInt((String)v.getTag());
+		int tag;
+		try {
+			tag = Integer.parseInt((String)v.getTag());
+		} catch (Exception e) { tag = 1; }
+		
 		System.out.println("Tag:" + tag);
 		switch (tag) {
 			case 0: disableUI(); toggleStream(); break;
