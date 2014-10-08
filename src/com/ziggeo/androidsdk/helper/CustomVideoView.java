@@ -39,11 +39,7 @@ public class CustomVideoView extends VideoView implements OnClickListener {
 	private void setStyle() {
 		RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,
                 LayoutParams.MATCH_PARENT);
-        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, -1);
-        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, -1);
-        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, -1);
-        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, -1);
-        layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL, 0);
+		layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
         this.setLayoutParams(layoutParams);	
 	}
 
