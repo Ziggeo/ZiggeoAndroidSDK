@@ -6,6 +6,19 @@ two lines of code in your site, service or app. This is the Android SDK reposito
 so if you want to improve on it, feel free to add a pull request.
 
 
+## Prerequisites
+
+Add the following permission settings to your app:
+
+```
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+```
+
 ## Integrating the Video Player
 
 ```
