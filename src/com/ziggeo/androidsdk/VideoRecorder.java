@@ -131,7 +131,7 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 		mButtonStart = (ImageButton)mVideoRecorderLayout.findViewById(getResources().getIdentifier("ziggeo_recorder_start", "id", pn));
 		mButtonFlash = (ImageButton)mVideoRecorderLayout.findViewById(getResources().getIdentifier("ziggeo_recorder_flash", "id", pn));
 		mButtonCamera = (ImageButton)mVideoRecorderLayout.findViewById(getResources().getIdentifier("ziggeo_recorder_switch_camera", "id", pn));
-		mButtonSettings = (ImageButton)mVideoRecorderLayout.findViewById(getResources().getIdentifier("ziggeo_recorder_settings", "id", pn));
+//		mButtonSettings = (ImageButton)mVideoRecorderLayout.findViewById(getResources().getIdentifier("ziggeo_recorder_settings", "id", pn));
 		mButtonRerecord = (Button) ((RelativeLayout)mVideoRecorderLayout.findViewById(getResources().getIdentifier("ziggeo_recorderer_layout_1", "id", pn))).getChildAt(0);
 		
 		// Surface view showing recorder camera
@@ -152,7 +152,7 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 		mButtonStart.setOnClickListener(this);
 		mButtonFlash.setOnClickListener(this);
 		mButtonCamera.setOnClickListener(this);
-		mButtonSettings.setOnClickListener(this);
+//		mButtonSettings.setOnClickListener(this);
 		mButtonRerecord.setOnClickListener(this);
 		mGridView.setOnItemClickListener(this);
 		
@@ -215,6 +215,7 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 	@Override
 	public void onClick(View v) {
 		int tag = Integer.parseInt((String)v.getTag());
+		System.out.println("Tag:" + tag);
 		switch (tag) {
 			case 0: disableUI(); toggleStream(); break;
 			case 1: toggleFlash(); break;

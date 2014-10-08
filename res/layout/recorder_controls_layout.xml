@@ -38,12 +38,13 @@
             android:src="@drawable/ic_switch_photo_facing_holo_light"
             android:tag="2"  />
 
-        <ImageButton
+<!--         <ImageButton
             android:id="@+id/ziggeo_recorder_settings"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:contentDescription="@string/video"
             android:src="@drawable/ic_settings_holo_light"
-            android:tag="3"  />
+            android:tag="3"  /> -->
+        
     </LinearLayout>
 </FrameLayout>
