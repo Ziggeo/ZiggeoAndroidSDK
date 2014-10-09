@@ -52,6 +52,7 @@ public class Preview implements SurfaceHolder.Callback, Camera.PreviewCallback {
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
 		mSession.startPreview();
+		callback.previewSurfaceCreated();
 	}
 
 	@Override
