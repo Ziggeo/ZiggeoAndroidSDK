@@ -186,6 +186,8 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 				currentOrientation = getCurrentOrientation();
 				mSession.rotateCamera(currentOrientation, width, height);
 			}
+			public void previewSurfaceCreated() {
+			}
 		};
 		
 		// Configures the RTSP client
