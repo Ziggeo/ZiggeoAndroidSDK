@@ -343,7 +343,7 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 						startStream();
 					}
 				};
-				postRequest.execute(Ziggeo.postNewVideoPath());
+				postRequest.execute(Ziggeo.postNewVideoPath() + "&video_rotation=" + currentOrientation);
 			} catch(Exception e) {
 			}	
 			isInitialStream = false;
@@ -362,7 +362,7 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 						startStream();
 					}
 				};
-				postRequest.execute(Ziggeo.postNewStreamPath(VIDEO_TOKEN));
+				postRequest.execute(Ziggeo.postNewStreamPath(VIDEO_TOKEN) + "&video_rotation=" + currentOrientation);
 			} catch(Exception e) {
 			}			
 		}
