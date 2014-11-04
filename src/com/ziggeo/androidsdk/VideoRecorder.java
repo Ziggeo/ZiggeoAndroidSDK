@@ -441,7 +441,7 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 		}
 		
 		// Set whatever quality is closest to the one requested
-		mSession.setVideoQuality(VideoQuality.determineClosestSupportedResolution(mSession.getCameraParams(), quality));
+		mSession.setVideoQuality(VideoQuality.determineClosestSupportedResolution(mSession.getCameraParams().getSupportedPreviewSizes(), quality));
 		mSession.configure();
 		
 		// Save current resolution
@@ -525,6 +525,7 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 		// Set callback for main camera
 		currentOrientation = getCurrentOrientation();
 		mSession.setPreviewOrientation(currentOrientation);
+		// Always pick the highest quality for the preview surface
 		Size highestQuality = getHighestQuality();
 		mWidth = highestQuality.width; mHeight = highestQuality.height;
 		mSession.setVideoQuality(new VideoQuality(highestQuality.width, highestQuality.height));
