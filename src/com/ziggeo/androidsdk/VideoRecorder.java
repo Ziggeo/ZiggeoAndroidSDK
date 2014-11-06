@@ -455,6 +455,12 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 	public List<Size> getSupportedQualities() {
 		return mSession.getCameraParams().getSupportedPreviewSizes();
 	}
+	
+	public int getHighestFPS() {
+		List<int[]> supportedFPS = mSession.getCameraParams().getSupportedPreviewFpsRange();
+		return (supportedFPS.get(supportedFPS.size() - 1)[1]) / 1000;
+	}
+
 
 	private void enableUI() {
 		mButtonStart.setEnabled(true);
@@ -527,8 +533,9 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 		mSession.setPreviewOrientation(currentOrientation);
 		// Always pick the highest quality for the preview surface
 		Size highestQuality = getHighestQuality();
+		int highestFPS = getHighestFPS();
 		mWidth = highestQuality.width; mHeight = highestQuality.height;
-		mSession.setVideoQuality(new VideoQuality(highestQuality.width, highestQuality.height));
+		mSession.setVideoQuality(new VideoQuality(highestQuality.width, highestQuality.height, highestFPS));
 		mSession.configure();
 	}	
 
