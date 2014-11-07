@@ -250,7 +250,7 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 			// Post the image and the video, depending on the configuration used			
 			imagePostRequest.callback = new OnPostRequestCompletedCallback() {
 				public void OnPostRequestCompleted(JSONObject jObject) {
-					videoPostRequest.execute(Ziggeo.postVideoPath(VIDEO_TOKEN, STREAM_TOKEN));
+					videoPostRequest.execute(Ziggeo.postVideoPath(VIDEO_TOKEN, STREAM_TOKEN) + "?rotation=" + currentOrientation);
 				}
 			};
 			imagePostRequest.execute(Ziggeo.postImagePath(VIDEO_TOKEN, STREAM_TOKEN));
@@ -285,7 +285,7 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 		try {
 			// Post requests for video and preview frame
 			final PostRequest videoPostRequest = new PostRequest();		
-			videoPostRequest.execute(Ziggeo.postVideoPath(VIDEO_TOKEN, STREAM_TOKEN));
+			videoPostRequest.execute(Ziggeo.postVideoPath(VIDEO_TOKEN, STREAM_TOKEN) + "?rotation=" + currentOrientation);
 			// Set the frame as main background and hide grid view
 		    mGridViewLayout.setVisibility(View.GONE);
 		    mFrameSelected = true;
@@ -343,7 +343,7 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 						startStream();
 					}
 				};
-				postRequest.execute(Ziggeo.postNewVideoPath() + "&video_rotation=" + currentOrientation);
+				postRequest.execute(Ziggeo.postNewVideoPath());
 			} catch(Exception e) {
 			}	
 			isInitialStream = false;
@@ -362,7 +362,7 @@ public class VideoRecorder extends Fragment implements OnClickListener,
 						startStream();
 					}
 				};
-				postRequest.execute(Ziggeo.postNewStreamPath(VIDEO_TOKEN) + "&video_rotation=" + currentOrientation);
+				postRequest.execute(Ziggeo.postNewStreamPath(VIDEO_TOKEN));
 			} catch(Exception e) {
 			}			
 		}
