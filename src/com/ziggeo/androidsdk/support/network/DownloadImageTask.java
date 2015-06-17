@@ -1,4 +1,4 @@
-package com.ziggeo.androidsdk.helper;
+package com.ziggeo.androidsdk.support.network;
 
 import java.net.URL;
 

@@ -1,6 +1,6 @@
 package com.ziggeo.androidsdk;
 
-import com.ziggeo.androidsdk.helper.*;
+import com.ziggeo.androidsdk.callbacks.OnDismissVideoPlayerCallback;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

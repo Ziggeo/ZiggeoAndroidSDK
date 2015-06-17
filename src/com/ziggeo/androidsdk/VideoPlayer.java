@@ -1,6 +1,8 @@
 package com.ziggeo.androidsdk;
 
-import com.ziggeo.androidsdk.helper.*;
+import com.ziggeo.androidsdk.services.UrlService;
+import com.ziggeo.androidsdk.support.network.DownloadImageTask;
+import com.ziggeo.androidsdk.support.views.CustomVideoView;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -128,13 +130,13 @@ public class VideoPlayer extends Fragment {
 	    } 
 	    // Otherwise retrieve image from server
 	    else {
-	    	new DownloadImageTask(backgroundFrame).execute(Ziggeo.getImagePath(VIDEO_TOKEN));
+	    	new DownloadImageTask(backgroundFrame).execute(UrlService.getImagePath(VIDEO_TOKEN));
 	    }
 	    		
 		// Set up listeners
 		setupVideoPlayerListeners();
 				
-		Uri uri = Uri.parse(Ziggeo.getVideoPath(VIDEO_TOKEN));			
+		Uri uri = Uri.parse(UrlService.getVideoPath(VIDEO_TOKEN));			
 	   
 	    // Begin video processing
 	    mVideoView.setVideoURI(uri);

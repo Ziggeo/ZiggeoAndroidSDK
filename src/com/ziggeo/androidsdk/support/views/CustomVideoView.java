@@ -1,4 +1,4 @@
-package com.ziggeo.androidsdk.helper;
+package com.ziggeo.androidsdk.support.views;
 
 import android.content.Context;
 import android.util.AttributeSet;

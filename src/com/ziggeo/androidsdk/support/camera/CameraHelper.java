@@ -1,4 +1,4 @@
-package com.ziggeo.androidsdk.helper;
+package com.ziggeo.androidsdk.support.camera;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
